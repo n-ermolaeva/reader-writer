@@ -1,11 +1,11 @@
 
-public class Writer1 implements Runnable {
+public class Writer implements Runnable {
     private final int[][] array;
-    public final Thread threadWriter1;
+    public final Thread threadWriter;
 
-    public Writer1(int[][] array) {
+    public Writer(int[][] array) {
         this.array = array;
-        threadWriter1 = new Thread(this);
+        threadWriter = new Thread(this);
     }
 
     @Override
