@@ -1,16 +1,16 @@
-import java.util.Arrays;
 
 public class Reader implements Runnable {
-    private final int[][] array;
-    public final Thread threadReader;
+    Record record;
 
-    public Reader(int[][] array) {
-        this.array = array;
-        threadReader = new Thread(this);
+    public Reader(Record record) {
+        this.record = record;
+        new Thread(this, "Reader").start();
     }
 
     @Override
     public void run() {
-        System.out.println(Arrays.deepToString(array));
+        for (int n = 0; n < 10; n++) {
+            record.read();
+        }
     }
 }
